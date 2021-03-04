@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    vector<int> list{10, 20, 30, 40, 50};
+    vector<int> list{};
     
     char selection {};
 do {
@@ -20,30 +20,50 @@ do {
     cin >> selection;
     
     if (selection == 'P' || selection == 'p') {
+        if (list.size() == 0)
+            cout << "[] the list is empty"<< endl;
+        else{
         for (size_t i=0; i < list.size(); ++i){
             cout << list.at(i) << " ";
         }
+        }
     }
     else if(selection == 'A' || selection == 'a') {
+      
         int add{};
         cout << "Add a number: ";
         cin >> add;
         list.push_back(add);
+        cout << "You added: " << add;
+        
     }
     else if(selection == 'M' || selection == 'm') {
-        int mean{};
+        if (list.size() == 0)
+            cout << "[] the list is empty"<< endl;
+        else{
+        double mean{};
         for (auto& n : list){
         mean += n / list.size();
-         }
+        }
+         
         cout << "The mean of the list is: " << mean;
+        }
     }
     else if(selection == 'S' || selection == 's') {
+        if (list.size() == 0)
+            cout << "[] the list is empty"<< endl;
+        else{
          cout << "The smallest number is: " << *min_element(list.begin(), list.end());
+        }
     }
     else if(selection == 'L' || selection == 'l') {
-        
+        if (list.size() == 0)
+            cout << "[] the list is empty"<< endl;
+        else{
          cout << "The largest number is: " << *max_element(list.begin(), list.end());
+        }
     }
+    
      else
         cout << "Unknown selection, please try again";
 }
