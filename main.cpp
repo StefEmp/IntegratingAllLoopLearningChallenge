@@ -23,9 +23,10 @@ do {
         if (list.size() == 0)
             cout << "[] the list is empty"<< endl;
         else{
-        for (size_t i=0; i < list.size(); ++i){
-            cout << list.at(i) << " ";
-        }
+            cout << "[ ";
+        for (auto num: list)
+            cout <<  num << " ";
+            cout << "]" << endl;
         }
     }
     else if(selection == 'A' || selection == 'a') {
@@ -39,13 +40,12 @@ do {
     }
     else if(selection == 'M' || selection == 'm') {
         if (list.size() == 0)
-            cout << "[] the list is empty"<< endl;
+            cout << "[] the list is empty cannot calculate the mean"<< endl;
         else{
         double mean{};
-        for (auto& n : list){
-        mean += n / list.size();
+        for (auto num : list){
+        mean += num / list.size();
         }
-         
         cout << "The mean of the list is: " << mean;
         }
     }
@@ -63,7 +63,6 @@ do {
          cout << "The largest number is: " << *max_element(list.begin(), list.end());
         }
     }
-    
      else
         cout << "Unknown selection, please try again";
 }
